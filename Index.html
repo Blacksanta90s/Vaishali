@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Vaishali ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #ffdee9 0%, #b5fffc 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            z-index: 10;
+            border: 2px solid #ff4d6d;
+        }
+        h1 { color: #d63384; font-size: 2.5rem; margin-bottom: 20px; }
+        .buttons { margin-top: 30px; position: relative; height: 60px; }
+        button {
+            padding: 12px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; margin-right: 20px; }
+        #yesBtn:hover { transform: scale(1.1); background-color: #ff1a4a; }
+        #noBtn { background-color: #6c757d; color: white; position: absolute; }
+        .footer { margin-top: 40px; font-size: 1.1rem; color: #555; font-weight: 500; }
+        
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: float 5s infinite ease-in;
+            opacity: 0.7;
+            z-index: 1;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <iframe src="https://www.youtube.com/embed/IzpY06s83l0?autoplay=1&loop=1&playlist=IzpY06s83l0" allow="autoplay" style="display:none"></iframe>
+
+    <div class="container">
+        <div id="content">
+            <div id="cat-img">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3p4N3R4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z&ep=v1_gifs_search&rid=giphy.gif&ct=s" width="150" alt="Cute Cat">
+            </div>
+            <h1>Vaishali, will you be my Valentine? ❤️</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="celebrate()">Yes</button>
+                <button id="noBtn" onmouseover="moveButton()">No</button>
+            </div>
+            <div class="footer">With regards, Sachin Gupta</div>
+        </div>
+    </div>
+
+    <script>
+        // Move "No" button
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Floating Hearts Effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+
+        // Success Action
+        function celebrate() {
+            document.getElementById('content').innerHTML = `
+                <h1 style="font-size: 60px;">YAYYY! 💖</h1>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnY1bm5ueGd6YjR3eHRyOXpueGZ6dzR6dzR6dzR6dzR6dzR6dzR6JmVwPXYxX2dpZnNfc2VhcmNoJmN0PWc/c6Wv3n6M2uo9s6ihxP/giphy.gif" width="250">
+                <p style="font-size: 20px; color: #ff4d6d; font-weight: bold;">I'm the luckiest! See you soon. 😍</p>
+                <div class="footer">With regards, Sachin Gupta</div>
+            `;
+            // Trigger some extra hearts
+            for(let i=0; i<20; i++) setTimeout(createHeart, i*50);
+        }
+    </script>
+</body>
+</html>
